@@ -1,0 +1,104 @@
+[
+  {
+    "model": "products.Category",
+    "pk": 1,
+    "fields": {
+      "title": "Electronics",
+      "is_active": true
+    }
+  },
+  {
+    "model": "products.Category",
+    "pk": 2,
+    "fields": {
+      "title": "Clothing",
+      "is_active": true
+    }
+  },
+  {
+    "model": "products.Category",
+    "pk": 3,
+    "fields": {
+      "title": "Books",
+      "is_active": true
+    }
+  },
+  {
+    "model": "products.Category",
+    "pk": 4,
+    "fields": {
+      "title": "Home & Kitchen",
+      "is_active": true
+    }
+  },
+  {
+    "model": "products.Category",
+    "pk": 5,
+    "fields": {
+      "title": "Sports",
+      "is_active": true
+    }
+  },
+
+
+   {
+    "model": "products.Product",
+    "pk": 1,
+    "fields": {
+      "title": "Smartphone",
+      "description": "Latest model with high-end specs.",
+      "price": "699.99",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.Product",
+    "pk": 2,
+    "fields": {
+      "title": "Wireless Headphones",
+      "description": "Noise-cancelling over-ear headphones.",
+      "price": "199.99",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.Product",
+    "pk": 3,
+    "fields": {
+      "title": "Men's T-Shirt",
+      "description": "100% cotton, breathable fabric.",
+      "price": "14.99",
+      "category": 2
+    }
+  },
+  {
+    "model": "products.Product",
+    "pk": 4,
+    "fields": {
+      "title": "Fiction Novel",
+      "description": "Bestselling mystery thriller.",
+      "price": "9.99",
+      "category": 3
+    }
+  },
+  {
+    "model": "products.Product",
+    "pk": 5,
+    "fields": {
+      "title": "Blender",
+      "description": "500W high-speed blender with multiple settings.",
+      "price": "49.99",
+      "category": 4
+    }
+  },
+  {
+    "model": "products.Product",
+    "pk": 6,
+    "fields": {
+      "title": "Football",
+      "description": "Standard size football, ideal for all ages.",
+      "price": "24.50",
+      "category": 5
+    }
+  } 
+]
