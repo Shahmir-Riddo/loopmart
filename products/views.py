@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
 from django.db.models import Avg, Max, Count
 # Create your views here.
@@ -21,3 +21,11 @@ def index(request):
                }
     
     return render(request, 'index.html', context)
+
+
+def product_detail(request, product_slug):
+    product = get_object_or_404(Product, slug=product_slug)
+    context = {
+        'product': product,
+    }
+    return render(request, 'product_detail.html', context)

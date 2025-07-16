@@ -11,8 +11,8 @@ class Profile(models.Model):
     email = models.EmailField(max_length=254, null=True, blank=True)
     mobile_number = models.CharField(max_length=15, unique=True, blank=True, null=True, validators=[RegexValidator(regex=r"^\d{11}", message="Phone Number must be 11 digits")])
     otp = models.CharField(max_length=6, null=True, blank=True)
-    is_verified = models.BooleanField(default=False)
-
+    is_vendor = models.BooleanField(default=False, null=True, blank=True)
+    
     def __str__(self):
         return f"{self.user.username}"
 
