@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login as login_auth
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as login_auth, logout
 # from .utils import generate_otp, verify_otp
 from django.core.mail import send_mail
@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, SignupForm
 from .models import Profile
 import random
+from cart.models import Cart, CartItems
+from django.contrib.auth.models import User
 
 
 @login_required
@@ -63,3 +65,17 @@ def logout_view(request):
 
 def otp_verify(request):
     pass
+
+
+def profile(request, username):
+    user = get_object_or_404(User, username=username)
+    profile_obj = Profile.objects.get(user=user)
+    cart = Cart.objects.get(user=user)
+    cart_items = cart.items.all()
+
+    context =  {
+        'profile': profile_obj,
+        'cart': cart,
+        'cart_items': cart_items,
+    }
+    return render(request, 'profile.html', context)

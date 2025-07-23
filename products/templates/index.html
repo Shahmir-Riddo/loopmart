@@ -31,7 +31,7 @@
    <h1>Products</h1>
 {% for p in products %}
 
-<p>{{p.title}} - <small>{{p.price}}</small></p>
+<p><a href="{% url "product_detail" p.slug %}"> {{p.title}} - <small>{{p.price}}</small> </a></p>
 
 {% endfor %}
   </div>

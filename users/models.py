@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 import random
 from django.conf import settings
-
+from django.urls import reverse
 # Create your models here.
      
 class Profile(models.Model):
