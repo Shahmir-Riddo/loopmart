@@ -57,4 +57,4 @@ def add_to_cart(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
     items, created = CartItems.objects.get_or_create(cart=cart, cart_items=product)
 
-    return redirect('products/')
+    return redirect(f'/accounts/profile/{request.user.username}')

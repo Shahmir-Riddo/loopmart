@@ -40,6 +40,9 @@
                             
                         </ul>
                {% endfor %}  
+         {% for c in carts %}
+               <p>{{c.total_price}}</p>
+         {% endfor %}
                     {% else %}
                         <p class="text-muted">Your cart is empty.</p>
                     {% endif %}  

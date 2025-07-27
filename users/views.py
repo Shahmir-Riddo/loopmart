@@ -11,6 +11,8 @@ from .models import Profile
 import random
 from cart.models import Cart, CartItems
 from django.contrib.auth.models import User
+from .decorators import user_is_owner
+from django.db.models import Sum
 
 
 @login_required
@@ -66,16 +68,20 @@ def logout_view(request):
 def otp_verify(request):
     pass
 
-
+@login_required
+@user_is_owner
 def profile(request, username):
+
     user = get_object_or_404(User, username=username)
     profile_obj = Profile.objects.get(user=user)
     cart = Cart.objects.get(user=user)
     cart_items = cart.items.all()
-
+    carts = Cart.objects.filter(user=user).annotate(total_price=Sum('items__cart_items__price'))
     context =  {
         'profile': profile_obj,
         'cart': cart,
         'cart_items': cart_items,
+        'carts': carts
     }
+
     return render(request, 'profile.html', context)
