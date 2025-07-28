@@ -17,8 +17,10 @@ class Cart(models.Model):
 class CartItems(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
     cart_items = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
 
     
     def __str__(self):
-        return f"Item #{self.id} - {self.cart_items}"
+        
+        return f"Item #{self.id} - {self.cart_items} x {self.quantity}"
     

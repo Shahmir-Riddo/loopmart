@@ -21,8 +21,10 @@
 <li>{{product.price}}</li>
 <small>{{product.description}}</small>
 <form method="POST" action="{% url "add_to_cart" %}"> {% csrf_token %}
+  <div class="mb-2">
   <input name="product_id" type="hidden" value="{{product.id}}">
 <button type="submit" class="btn btn-primary">Add to cart</button>
+  </div>
 </form>
   <!-- Bootstrap JS Bundle (includes Popper) -->
   <script 
